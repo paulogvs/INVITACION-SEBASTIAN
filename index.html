@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Sebastián cumple 4! - Invitación de Cumpleaños</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rojo: #ff3b2d;
+            --naranja: #ff9a00;
+            --azul: #0066ff;
+            --amarillo: #ffdd00;
+            --azul-oscuro: #0a2463;
+            --rojo-oscuro: #d62828;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            overflow-x: hidden;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+            background: url('https://z-cdn-media.chatglm.cn/files/7134d90f-99a8-4f1b-b7c9-78c3f068bf56_HOTWHEELS%20CITY.jpg?auth_key=1761943346-91a52907bd74412d9a150495289ccbea-0-ffb8359cc05fb9c1f4a3a828b7795d75') center/cover fixed no-repeat;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .decorative-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .flame {
+            position: absolute;
+            width: 60px;
+            height: 100px;
+            background: linear-gradient(to top, var(--rojo), var(--naranja), var(--amarillo));
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            opacity: 0.7;
+            filter: blur(2px);
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        .flame-1 { top: 5%; left: 10%; transform: rotate(-15deg); }
+        .flame-2 { top: 8%; right: 15%; transform: rotate(10deg); }
+        .flame-3 { bottom: 10%; left: 20%; transform: rotate(5deg); }
+        .flame-4 { bottom: 15%; right: 10%; transform: rotate(-10deg); }
+
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(var(--rotation, 0deg)); opacity: 0.7; }
+            100% { transform: scale(1.1) rotate(var(--rotation, 0deg)); opacity: 0.9; }
+        }
+
+        .poster-container {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 600px;
+            margin: 5vh auto;
+            background: rgba(0, 0, 0, 0.75);
+            border: 3px solid var(--amarillo);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 30px var(--azul);
+            overflow: hidden;
+        }
+
+        .poster-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: var(--rojo);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        .poster-container::after {
+            content: '';
+            position: absolute;
+            bottom: -70px;
+            left: -70px;
+            width: 180px;
+            height: 180px;
+            background: var(--azul);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .title {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5rem;
+            color: var(--amarillo);
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 0 var(--rojo), 4px 4px 0 var(--azul);
+            transform: rotate(-1deg);
+        }
+
+        .paragraph {
+            margin: 15px 0;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            background: linear-gradient(transparent 60%, rgba(255, 213, 0, 0.3) 40%);
+            padding: 0 3px;
+        }
+
+        .cta {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--amarillo);
+            margin: 25px 0;
+            font-weight: bold;
+        }
+
+        .sebastian-photo {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .sebastian-photo img {
+            max-width: 80%;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--amarillo);
+        }
+
+        .event-details {
+            background: rgba(21, 101, 192, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            background: var(--rojo);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--naranja);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-confirm {
+            display: block;
+            background: linear-gradient(135deg, var(--rojo), var(--naranja));
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 25px auto;
+            transition: all 0.3s;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--amarillo);
+            cursor: pointer;
+            font-size: 1.2rem;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .btn-confirm:hover {
+            background: linear-gradient(135deg, var(--naranja), var(--rojo));
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 213, 0, 0.3);
+        }
+
+        .qr-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .qr-container img {
+            width: 180px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--amarillo);
+        }
+
+        .qr-text {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: var(--amarillo);
+        }
+
+        #countdown {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--amarillo);
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .closing {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .title { font-size: 2rem; }
+            .poster-container { width: 95%; padding: 20px; }
+            .buttons { flex-direction: column; align-items: center; }
+            .btn { width: 80%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="decorative-elements">
+        <div class="flame flame-1"></div>
+        <div class="flame flame-2"></div>
+        <div class="flame flame-3"></div>
+        <div class="flame flame-4"></div>
+    </div>
+
+    <main>
+        <div class="poster-container">
+            <div class="content">
+                <h1 class="title">🎉 ¡Te invitamos a celebrar el cumpleaños de Sebastián! 🎂</h1>
+
+                <div class="sebastian-photo">
+                    <img src="https://z-cdn-media.chatglm.cn/files/1d491f24-b50e-4493-814d-312abe312d98_Sebas%20-%20TIGER%20SHARK.png?auth_key=1761943990-a8e1540bb71b4d3dae4957bbeb9f6603-0-ef0237b32b4dd973d68dba6d46a1e218" alt="Sebastián con su camión monstruo">
+                </div>
+
+                <p class="paragraph">
+                    Nos llena de alegría compartir contigo este día tan especial, lleno de <span class="highlight">risas, juegos y mucha diversión</span>.
+                </p>
+
+                <p class="paragraph">
+                    Tu presencia es el mejor regalo que podemos recibir, y será un gran motivo de felicidad para Sebastián 💛
+                </p>
+
+                <p class="paragraph">
+                    Si además deseas tener un detalle, puede ser un juguete o una transferencia QR, para ayudarnos a equipar su dormitorio, un espacio hecho con mucho amor para él. 🏠✨
+                </p>
+
+                <p class="paragraph">
+                    ¡Te esperamos para celebrar juntos este nuevo año de vida!
+                </p>
+
+                <div class="event-details">
+                    <div class="detail-item">
+                        <span style="font-size: 1.5rem; margin-right: 10px;">📅</span>
+                        <strong>Fecha:</strong> Domingo 09/11/2025
+                    </div>
+                    <div class="detail-item">
+                        <span style="font-size: 1.5rem; margin-right: 10px;">⏰</span>
+                        <strong>Hora:</strong> 10:00
+                    </div>
+                    <div class="detail-item">
+                        <span style="font-size: 1.5rem; margin-right: 10px;">📍</span>
+                        <strong>Lugar:</strong> TERRA VERDE
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <a href="https://maps.app.goo.gl/VeGanRx4kRuVE4327" class="btn">📍 ¿Cómo llegar?</a>
+                </div>
+
+                <a href="https://wa.me/59177456670?text=¡Confirmo%20mi%20asistencia%20al%20cumple%20de%20Sebastián!" class="btn-confirm">✓ Confirmar asistencia</a>
+
+                <div class="qr-container">
+                    <p style="font-size: 1.1rem; margin-bottom: 10px;">💝 Código QR para regalos</p>
+                    <p class="qr-text">Escanea para tener un detalle con Sebastián</p>
+                </div>
+
+                <div class="closing">
+                    <p>Con cariño,</p>
+                    <p><strong>Familia Velasco Terán</strong></p>
+                </div>
+
+                <div id="countdown"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Contador regresivo
+        const fiesta = new Date("Nov 09, 2025 10:00:00").getTime();
+        const cd = setInterval(() => {
+            const ahora = new Date().getTime();
+            const falta = fiesta - ahora;
+
+            if (falta < 0) {
+                clearInterval(cd);
+                document.getElementById("countdown").innerHTML = "¡Es hoy! 🎉";
+                return;
+            }
+
+            const d = Math.floor(falta / (1000 * 60 * 60 * 24));
+            const h = Math.floor((falta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((falta % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((falta % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = 
+                `Faltan <strong>${d}d ${h}h ${m}m ${s}s</strong> para la gran carrera 🏁`;
+        }, 1000);
+    </script>
+</body>
+</html>
