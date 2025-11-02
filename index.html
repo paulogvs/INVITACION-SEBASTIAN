@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Sebastián cumple 4! - Invitación de Cumpleaños</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <title>¡Sebastián cumple 4!</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rubik:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --rojo: #ff3b2d;
@@ -14,11 +15,7 @@
             --azul-oscuro: #0a2463;
             --rojo-oscuro: #d62828;
         }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Rubik', sans-serif;
             overflow-x: hidden;
@@ -27,201 +24,77 @@
             position: relative;
             background: url('./HOTWHEELS CITY.jpg') center/cover fixed no-repeat;
         }
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
-        .container {
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 20px;
-            text-align: center;
-        }
-        .header {
-            margin-bottom: 40px;
-        }
-        .title {
-            font-family: 'Bangers', cursive;
-            font-size: 3rem;
-            color: var(--amarillo);
-            text-shadow: 3px 3px 0px var(--rojo), 6px 6px 0px rgba(0, 0, 0, 0.5);
-            margin-bottom: 20px;
-            transform: rotate(-5deg);
-            animation: bounce 1s infinite;
-        }
-        .subtitle {
-            font-size: 1.3rem;
-            color: var(--naranja);
-            margin-bottom: 20px;
-        }
-        .sebastian-img {
-            max-width: 300px;
-            margin: 30px 0;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 5px solid var(--amarillo);
-            animation: rotate-slow 6s linear infinite;
-        }
-        .details {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        .detail-item {
-            margin: 15px 0;
-            font-size: 1.1rem;
-            color: #fff;
-        }
-        .detail-item span {
-            font-size: 1.5rem;
-            margin-right: 10px;
-        }
-        .detail-item strong {
-            color: var(--amarillo);
-        }
-        .buttons {
-            margin: 30px 0;
-        }
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--azul), var(--rojo));
-            color: white;
-            padding: 15px 30px;
-            margin: 10px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            border: 2px solid var(--amarillo);
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
-        }
-        .btn-confirm {
-            display: block;
-            background: linear-gradient(135deg, var(--rojo), var(--rojo-oscuro));
-            color: var(--amarillo);
-            padding: 18px 40px;
-            margin: 20px auto;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border: 3px solid var(--amarillo);
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            max-width: 300px;
-        }
-        .btn-confirm:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
-        }
-        .qr-container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 30px 0;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        .qr-container img {
-            max-width: 200px;
-            margin: 15px 0;
-            border-radius: 10px;
-            border: 3px solid var(--amarillo);
-        }
-        .qr-text {
-            font-size: 0.95rem;
-            color: #ddd;
-            margin-top: 10px;
-        }
-        .closing {
-            margin: 40px 0 20px;
-            font-size: 1.1rem;
-            color: var(--amarillo);
-            font-weight: bold;
-        }
-        #countdown {
-            margin: 20px 0;
-            font-size: 1.2rem;
-            color: var(--amarillo);
-            font-weight: bold;
-        }
-        @keyframes bounce {
-            0%, 100% { transform: rotate(-5deg) translateY(0); }
-            50% { transform: rotate(-5deg) translateY(-10px); }
-        }
-        @keyframes rotate-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        @media (max-width: 600px) {
-            .title {
-                font-size: 2rem;
-            }
-            .sebastian-img {
-                max-width: 250px;
-            }
-            .container {
-                margin: 20px auto;
-                padding: 15px;
-            }
-        }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1; }
+        .decorative-elements { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
+        .flame { position: absolute; width: 60px; height: 100px; background: linear-gradient(to top, var(--rojo), var(--naranja), var(--amarillo)); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; opacity: 0.7; filter: blur(2px); animation: flicker 1.5s infinite alternate; }
+        .flame-1 { top: 5%; left: 10%; transform: rotate(-15deg); }
+        .flame-2 { top: 8%; right: 15%; transform: rotate(10deg); }
+        .flame-3 { bottom: 10%; left: 20%; transform: rotate(5deg); }
+        .flame-4 { bottom: 15%; right: 10%; transform: rotate(-10deg); }
+        @keyframes flicker { 0% { transform: scale(1) rotate(var(--rotation, 0deg)); opacity: 0.7; } 100% { transform: scale(1.1) rotate(var(--rotation, 0deg)); opacity: 0.9; } }
+        .poster-container { position: relative; z-index: 10; width: 90%; max-width: 600px; margin: 5vh auto; background: rgba(0,0,0,0.75); border: 3px solid var(--amarillo); border-radius: 20px; padding: 30px; box-shadow: 0 0 30px var(--azul); overflow: hidden; }
+        .poster-container::before { content: ''; position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: var(--rojo); border-radius: 50%; opacity: 0.2; }
+        .poster-container::after { content: ''; position: absolute; bottom: -70px; left: -70px; width: 180px; height: 180px; background: var(--azul); border-radius: 50%; opacity: 0.2; }
+        .content { position: relative; z-index: 2; }
+        .title { font-family: 'Bangers', cursive; font-size: 2.5rem; color: var(--amarillo); text-align: center; margin-bottom: 20px; text-shadow: 2px 2px 0 var(--rojo), 4px 4px 0 var(--azul); transform: rotate(-1deg); }
+        .paragraph { margin: 15px 0; font-size: 1.1rem; line-height: 1.5; }
+        .highlight { background: linear-gradient(transparent 60%, rgba(255, 213, 0, 0.3) 40%); padding: 0 3px; }
+        .cta { text-align: center; font-size: 1.3rem; color: var(--amarillo); margin: 25px 0; font-weight: bold; }
+        .sebastian-photo { text-align: center; margin: 20px 0; }
+        .sebastian-photo img { max-width: 80%; border-radius: 15px; box-shadow: 0 8px 16px rgba(0,0,0,0.3); border: 3px solid var(--amarillo); }
+        .event-details { background: rgba(21, 101, 192, 0.8); border-radius: 15px; padding: 20px; margin: 20px 0; }
+        .detail-item { display: flex; align-items: center; margin: 10px 0; font-size: 1.1rem; }
+        .detail-item .material-icons { margin-right: 10px; color: var(--amarillo); }
+        .buttons { display: flex; justify-content: center; flex-wrap: wrap; margin: 25px 0; }
+        .btn { display: inline-flex; align-items: center; background: var(--rojo); color: #fff; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 8px; transition: all 0.3s; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .btn:hover { background: var(--naranja); transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.3); }
+        .btn .material-icons { margin-right: 8px; }
+        .btn-confirm { display: block; margin: 25px auto; width: 80%; max-width: 300px; text-align: center; font-size: 1.2rem; padding: 15px 25px; background: linear-gradient(135deg, var(--rojo), var(--naranja)); box-shadow: 0 6px 12px rgba(0,0,0,0.3); border: 2px solid var(--amarillo); }
+        .btn-confirm:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.4); }
+        .qr-container { text-align: center; margin: 25px 0; }
+        .qr-container img { width: 180px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); border: 2px solid var(--amarillo); }
+        .qr-text { margin-top: 10px; font-size: 1rem; color: var(--amarillo); }
+        #countdown { text-align: center; font-size: 1.2rem; color: var(--amarillo); margin-top: 20px; font-weight: bold; }
+        .closing { text-align: center; margin-top: 20px; font-size: 1.1rem; font-style: italic; }
+        @media (max-width: 600px) { .title { font-size: 2rem; } .poster-container { width: 95%; padding: 20px; } .buttons { flex-direction: column; align-items: center; } .btn { width: 80%; justify-content: center; } .btn-confirm { width: 90%; } }
     </style>
 </head>
 <body>
     <div class="overlay"></div>
-    <div class="container">
-        <div class="header">
-            <h1 class="title">¡Vroom Vroom! 🏎️</h1>
-            <p class="subtitle">Sebastián cumple 4 años</p>
-        </div>
-        <img src="./Sebas - TIGER SHARK.png" alt="Sebastián" class="sebastian-img">
-        <div class="details">
-            <div class="detail-item">
-                <span style="font-size: 1.5rem; margin-right: 10px;">📅</span>
-                Fecha: <strong>Domingo 09/11/2025</strong>
-            </div>
-            <div class="detail-item">
-                <span style="font-size: 1.5rem; margin-right: 10px;">⏰</span>
-                Hora: <strong>10:00</strong>
-            </div>
-            <div class="detail-item">
-                <span style="font-size: 1.5rem; margin-right: 10px;">📍</span>
-                Lugar: <strong>TERRA VERDE</strong>
-            </div>
-        </div>
-        <div class="buttons">
-            <a class="btn" href="https://maps.app.goo.gl/VeGanRx4kRuVE4327">📍 ¿Cómo llegar?</a>
-        </div>
-        <a class="btn-confirm" href="https://wa.me/59177456670?text=¡Confirmo%20mi%20asistencia%20al%20cumple%20de%20Sebastián!">✓ Confirmar asistencia</a>
-        <div class="qr-container">
-            <p style="font-size: 1.1rem; margin-bottom: 10px;">💝 Código QR para regalos</p>
-            <img src="./qr_regalos.png" alt="Código QR para regalos">
-            <p class="qr-text">Escanea para tener un detalle con Sebastián</p>
-        </div>
-        <div class="closing">
-            Con cariño,<br>
-            Familia Velasco Terán
-        </div>
-        <div id="countdown"></div>
+    <div class="decorative-elements">
+        <div class="flame flame-1" style="--rotation: -15deg;"></div>
+        <div class="flame flame-2" style="--rotation: 10deg;"></div>
+        <div class="flame flame-3" style="--rotation: 5deg;"></div>
+        <div class="flame flame-4" style="--rotation: -10deg;"></div>
     </div>
-
+    <div class="poster-container">
+        <div class="content">
+            <h1 class="title">🎉 ¡Te invitamos a celebrar el cumpleaños de Sebastián! 🎂</h1>
+            <div class="sebastian-photo">
+                <img src="./Sebas - TIGER SHARK.png" alt="Sebastián con su camión monstruo">
+            </div>
+            <p class="paragraph">Nos llena de alegría compartir contigo este día tan especial, lleno de <span class="highlight">risas, juegos y mucha diversión</span>.</p>
+            <p class="paragraph">Tu presencia es el mejor regalo que podemos recibir, y será un gran motivo de felicidad para Sebastián 💛</p>
+            <p class="paragraph">Si además deseas tener un detalle, puede ser un juguete o una transferencia QR, para ayudarnos a equipar su dormitorio, un espacio hecho con mucho amor para él. 🏠✨</p>
+            <div class="cta">¡Te esperamos para celebrar juntos este nuevo año de vida!</div>
+            <div class="event-details">
+                <div class="detail-item"><i class="material-icons">event</i><span>Fecha: <strong>Domingo 09/11/2025</strong></span></div>
+                <div class="detail-item"><i class="material-icons">schedule</i><span>Hora: <strong>10:00</strong></span></div>
+                <div class="detail-item"><i class="material-icons">place</i><span>Lugar: <strong>TERRA VERDE</strong></span></div>
+            </div>
+            <div class="buttons">
+                <a class="btn" href="https://maps.app.goo.gl/VeGanRx4kRuVE4327" target="_blank"><i class="material-icons">map</i>¿Cómo llegar?</a>
+            </div>
+            <a class="btn btn-confirm" href="https://wa.me/59177456670?text=¡Confirmo%20mi%20asistencia%20al%20cumple%20de%20Sebastián!" target="_blank">Confirmar asistencia</a>
+            <div class="qr-container">
+                <img src="./qr_regalos.png" alt="Código QR para regalos">
+                <p class="qr-text">Escanea para tener un detalle con Sebastián</p>
+            </div>
+            <div id="countdown"></div>
+            <div class="closing">Con cariño,<br>Familia Velasco Terán</div>
+        </div>
+    </div>
     <script>
-        // Contador regresivo
         const fiesta = new Date("Nov 09, 2025 10:00:00").getTime();
         const cd = setInterval(() => {
             const ahora = new Date().getTime();
